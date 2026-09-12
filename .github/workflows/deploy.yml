@@ -32,11 +32,14 @@ jobs:
     needs: ci
     runs-on: self-hosted
     steps:
-      - name: Pull latest code from GitHub
-        run: git pull origin main
+      - name: Navigate to project folder and pull latest code
+        run: |
+          cd /home/ubuntu/demo_devops
+          git pull origin main
 
       - name: Build and Run Docker Stack on EC2
         run: |
+          cd /home/ubuntu/demo_devops
           sudo docker compose build --no-cache
           sudo docker compose up -d
           sudo docker ps
