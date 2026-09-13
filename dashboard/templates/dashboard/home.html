@@ -7,17 +7,17 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-pink-50 via-rose-50 to-purple-50 min-h-screen font-sans text-gray-800">
+<body class="bg-gradient-to-br from-neutral-950 via-orange-950/40 to-neutral-950 min-h-screen font-sans text-gray-100">
     
     <!-- Navbar -->
-    <nav class="bg-white/80 backdrop-blur-md shadow-sm border-b border-pink-100 sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
+    <nav class="bg-neutral-900/80 backdrop-blur-md shadow-lg border-b border-orange-500/20 sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
         <div class="flex items-center space-x-2">
             <span class="text-2xl">⚡</span>
-            <h1 class="text-xl font-extrabold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">TaskPulse</h1>
+            <h1 class="text-xl font-extrabold bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-transparent">TaskPulse</h1>
         </div>
         <div class="flex items-center space-x-4">
-            <span class="text-sm font-medium text-gray-600">Welcome, <b class="text-pink-600">{{ request.user.username }}</b></span>
-            <a href="/admin/" class="bg-pink-600 hover:bg-pink-700 text-white text-xs font-semibold px-3 py-2 rounded-lg shadow-md transition duration-200">Admin Panel</a>
+            <span class="text-sm font-medium text-gray-300">Welcome, <b class="text-orange-400">{{ request.user.username }}</b></span>
+            <a href="/admin/" class="bg-orange-600 hover:bg-orange-500 text-white text-xs font-semibold px-3 py-2 rounded-lg shadow-md transition duration-200">Admin Panel</a>
         </div>
     </nav>
 
@@ -25,19 +25,19 @@
     <main class="container mx-auto p-6 max-w-4xl mt-6">
         
         <!-- Hero Card / Welcome Banner -->
-        <div class="bg-white/70 backdrop-blur-md border border-pink-100 shadow-xl rounded-2xl p-8 mb-8 relative overflow-hidden">
-            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-pink-200 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-            <h2 class="text-3xl font-bold text-gray-900 mb-2">Project Control Center</h2>
-            <p class="text-gray-600">Track your active assignments, manage workflows, and stay ahead of deadlines.</p>
+        <div class="bg-neutral-900/70 backdrop-blur-md border border-orange-500/20 shadow-xl rounded-2xl p-8 mb-8 relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-orange-500/20 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+            <h2 class="text-3xl font-bold text-white mb-2">Project Control Center</h2>
+            <p class="text-gray-400">Track your active assignments, manage workflows, and stay ahead of deadlines.</p>
         </div>
 
         <!-- Projects Section -->
-        <div class="bg-white/80 backdrop-blur-md border border-pink-100 shadow-xl rounded-2xl p-6">
+        <div class="bg-neutral-900/80 backdrop-blur-md border border-orange-500/20 shadow-xl rounded-2xl p-6">
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-xl font-bold text-gray-800 flex items-center gap-2">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
                     📂 Active Projects
                 </h3>
-                <span class="text-xs bg-pink-100 text-pink-700 font-semibold px-3 py-1 rounded-full">
+                <span class="text-xs bg-orange-500/10 text-orange-400 border border-orange-500/20 font-semibold px-3 py-1 rounded-full">
                     {{ projects|length }} Projects Total
                 </span>
             </div>
@@ -45,23 +45,23 @@
             {% if projects %}
                 <div class="grid gap-4">
                     {% for project in projects %}
-                        <div class="p-5 rounded-xl border border-pink-100 bg-white hover:shadow-md transition duration-200 flex justify-between items-center">
+                        <div class="p-5 rounded-xl border border-orange-500/20 bg-neutral-900/60 hover:bg-neutral-900 hover:border-orange-500/40 transition duration-200 flex justify-between items-center">
                             <div>
-                                <h4 class="text-lg font-bold text-gray-900 mb-1">{{ project.title }}</h4>
-                                <p class="text-sm text-gray-500">{{ project.description|default:"No description provided." }}</p>
+                                <h4 class="text-lg font-bold text-white mb-1">{{ project.title }}</h4>
+                                <p class="text-sm text-gray-400">{{ project.description|default:"No description provided." }}</p>
                             </div>
                             <div class="flex items-center gap-3">
-                                <span class="bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Active
+                                <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Active
                                 </span>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
             {% else %}
-                <div class="text-center py-12 border-2 border-dashed border-pink-200 rounded-xl">
-                    <p class="text-gray-500 mb-4">No projects found yet!</p>
-                    <a href="/admin/" class="inline-block bg-gradient-to-r from-pink-600 to-purple-600 text-white font-medium px-5 py-2.5 rounded-xl shadow-lg hover:opacity-95 transition duration-200">
+                <div class="text-center py-12 border-2 border-dashed border-orange-500/20 rounded-xl">
+                    <p class="text-gray-400 mb-4">No projects found yet!</p>
+                    <a href="/admin/" class="inline-block bg-gradient-to-r from-orange-600 to-amber-600 text-white font-medium px-5 py-2.5 rounded-xl shadow-lg hover:opacity-95 transition duration-200">
                         + Create Your First Project in Admin
                     </a>
                 </div>
